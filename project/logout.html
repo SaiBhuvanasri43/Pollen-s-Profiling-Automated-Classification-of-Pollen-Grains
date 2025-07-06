@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - Pollen's Profiling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">🌸 Pollen's Profiling</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="prediction.html" class="nav-link">Classify Pollen</a></li>
+                <li><a href="logout.html" class="nav-link active">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="logout-main">
+        <div class="container">
+            <div class="logout-card">
+                <div class="logout-icon">👋</div>
+                <h1>Session Management</h1>
+                <p>Manage your session and logout securely</p>
+
+                <div class="session-info">
+                    <h3>Current Session</h3>
+                    <div class="session-details">
+                        <div class="session-item">
+                            <label>Status:</label>
+                            <span class="status active" id="sessionStatus">Active</span>
+                        </div>
+                        <div class="session-item">
+                            <label>Login Time:</label>
+                            <span id="loginTime">-</span>
+                        </div>
+                        <div class="session-item">
+                            <label>Last Activity:</label>
+                            <span id="lastActivity">-</span>
+                        </div>
+                        <div class="session-item">
+                            <label>Classifications Today:</label>
+                            <span id="classificationsCount">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="logout-actions">
+                    <button class="logout-btn" onclick="performLogout()">
+                        <span id="logoutText">Logout</span>
+                        <div class="spinner" id="logoutSpinner" style="display: none;"></div>
+                    </button>
+                    <button class="clear-data-btn" onclick="clearSessionData()">Clear Session Data</button>
+                </div>
+
+                <div class="logout-options">
+                    <h3>Before You Leave</h3>
+                    <div class="options-list">
+                        <label class="option-item">
+                            <input type="checkbox" id="saveProgress">
+                            <span>Save analysis progress</span>
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" id="clearCache">
+                            <span>Clear browser cache</span>
+                        </label>
+                        <label class="option-item">
+                            <input type="checkbox" id="rememberSession">
+                            <span>Remember session for next visit</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="logout-message" id="logoutMessage" style="display: none;">
+                    <div class="message-content">
+                        <h3>Logout Successful</h3>
+                        <p>Thank you for using Pollen's Profiling. Your session has been terminated securely.</p>
+                        <a href="index.html" class="return-home-btn">Return to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="logout.js"></script>
+</body>
+</html>

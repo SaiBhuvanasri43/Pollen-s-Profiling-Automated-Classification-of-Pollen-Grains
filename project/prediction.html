@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollen Classification - Pollen's Profiling</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-logo">🌸 Pollen's Profiling</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="prediction.html" class="nav-link active">Classify Pollen</a></li>
+                <li><a href="logout.html" class="nav-link">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="prediction-main">
+        <div class="container">
+            <h1>Pollen Grain Classification</h1>
+            <p>Upload an image of pollen grains for automated classification</p>
+
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📷</div>
+                        <h3>Drop your image here or click to browse</h3>
+                        <p>Supported formats: JPG, PNG, GIF (Max size: 10MB)</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <button class="browse-btn" onclick="document.getElementById('fileInput').click()">Browse Files</button>
+                    </div>
+                </div>
+
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <img id="previewImg" src="/placeholder.svg" alt="Preview">
+                    <button class="remove-btn" onclick="removeImage()">Remove</button>
+                </div>
+            </div>
+
+            <div class="classification-controls">
+                <button class="classify-btn" id="classifyBtn" onclick="classifyImage()" disabled>
+                    <span id="btnText">Classify Pollen</span>
+                    <div class="spinner" id="spinner" style="display: none;"></div>
+                </button>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <h2>Classification Results</h2>
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Primary Classification</h3>
+                        <div class="result-item">
+                            <span class="pollen-type" id="primaryType">-</span>
+                            <span class="confidence" id="primaryConfidence">-</span>
+                        </div>
+                    </div>
+                    <div class="result-card">
+                        <h3>Alternative Classifications</h3>
+                        <div id="alternativeResults">
+                            <!-- Alternative results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-details">
+                    <h3>Analysis Details</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <label>Morphological Features:</label>
+                            <span id="morphology">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Size Category:</label>
+                            <span id="sizeCategory">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Surface Pattern:</label>
+                            <span id="surfacePattern">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <label>Processing Time:</label>
+                            <span id="processingTime">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="download-btn" onclick="downloadReport()">Download Report</button>
+                    <button class="new-analysis-btn" onclick="newAnalysis()">New Analysis</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="prediction.js"></script>
+</body>
+</html>
